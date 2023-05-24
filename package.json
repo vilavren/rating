@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
     "@types/node": "20.2.3",
@@ -18,5 +18,13 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "stylelint": "^15.6.2",
+    "stylelint-config-clean-order": "^5.0.1",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^6.0.3"
   }
 }
