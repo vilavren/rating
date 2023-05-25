@@ -8,9 +8,20 @@ html,
 body {
 	overflow-x: hidden;
 	max-width: 100vw;
+	color: var(--black);
+	background: #f5f6f8;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+:root {
+	--black: #3b434e;
+	--white: white;
+	--primary: #7653fc;
+	--red: #fc836d;
+	--green: #1dc37e;
+	--green-light: #c8f8e4;
 }

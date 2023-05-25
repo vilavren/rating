@@ -1,11 +1,5 @@
+import { notoSansKR } from './fonts'
 import './globals.css'
-import { Noto_Sans_KR } from 'next/font/google'
-
-const notoSansKR = Noto_Sans_KR({
-  weight: ['300', '400', '500', '700'],
-  display: 'swap',
-  subsets: ['latin'],
-})
 
 export const metadata = {
   title: 'Rating - топ ресурсов',
