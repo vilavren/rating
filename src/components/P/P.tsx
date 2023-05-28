@@ -16,6 +16,7 @@ export const P = ({
         [style.m]: size === 'm',
         [style.l]: size === 'l',
       })}
+      {...props}
     >
       {children}
     </p>
