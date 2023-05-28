@@ -21,6 +21,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
     "stylelint": "^15.6.2",
     "stylelint-config-clean-order": "^5.0.1",
     "stylelint-config-standard": "^33.0.0",

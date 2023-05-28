@@ -7,7 +7,13 @@ export default function Home() {
         <p>Get started by editing</p>
         <Htag tag="h1">Тест</Htag>
         <Button appearance="primary">Кнопка</Button>
-        <Button appearance="ghost">Кнопка ghost</Button>
+        <Button appearance="primary">Кнопка</Button>
+        <Button appearance="ghost" arrow="right">
+          Кнопка ghost
+        </Button>
+        <Button appearance="primary" arrow="right">
+          Кнопка
+        </Button>
       </div>
     </main>
   )
