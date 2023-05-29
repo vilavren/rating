@@ -1,4 +1,4 @@
-import { Button, Htag, P, Tag } from '@/components'
+import { Button, Htag, P, Tag, Rating } from '@/components'
 
 export default function Home() {
   return (
@@ -37,6 +37,7 @@ export default function Home() {
           green
         </Tag>
         <Tag color="red">red</Tag>
+        <Rating rating={4} />
       </div>
     </main>
   )
