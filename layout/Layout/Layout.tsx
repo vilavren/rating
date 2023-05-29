@@ -2,8 +2,9 @@ import cn from 'classnames'
 
 import style from './P.module.css'
 import { LayoutProps } from './Layout.props'
+import { Footer, Header, SideBar } from '..'
 
-export const P = ({ children }: LayoutProps): JSX.Element => {
+export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
       <Header />
