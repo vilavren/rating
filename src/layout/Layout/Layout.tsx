@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import style from './P.module.css'
+import style from './Layout.module.css'
 import { LayoutProps } from './Layout.props'
 import { Footer, Header, SideBar } from '..'
 import { FunctionComponent } from 'react'
@@ -13,7 +13,6 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         <SideBar />
         <div>{children}</div>
       </div>
-
       <Footer />
     </>
   )
