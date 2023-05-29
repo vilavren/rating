@@ -1,15 +1,18 @@
+'use client' // This is a client component
+
 import { Button, Htag, P, Tag, Rating } from '@/components'
+import { useState } from 'react'
 
 export default function Home() {
+  const [rating, setRating] = useState<number>(4)
+
   return (
     <main>
       <div>
-        <p>Get started by editing</p>
         <Htag tag="h1">Тест</Htag>
         <Button appearance="primary">Кнопка</Button>
-        <Button appearance="primary">Кнопка</Button>
         <Button appearance="ghost" arrow="right">
-          Кнопка ghost
+          Кнопка
         </Button>
         <Button appearance="primary" arrow="right">
           Кнопка
@@ -33,11 +36,7 @@ export default function Home() {
         <Tag size="m" color="primary">
           primary
         </Tag>
-        <Tag size="s" color="green">
-          green
-        </Tag>
-        <Tag color="red">red</Tag>
-        <Rating rating={4} />
+        <Rating rating={4} isEditable setRating={setRating} />
       </div>
     </main>
   )
