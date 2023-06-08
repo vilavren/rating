@@ -1,9 +1,10 @@
-import cn from 'classnames'
+import React from 'react'
+import { FunctionComponent } from 'react'
+
+import { Footer, Header, SideBar } from '..'
 
 import style from './Layout.module.css'
 import { LayoutProps } from './Layout.props'
-import { Footer, Header, SideBar } from '..'
-import { FunctionComponent } from 'react'
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
