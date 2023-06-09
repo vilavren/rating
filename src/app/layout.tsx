@@ -1,4 +1,7 @@
+import React from 'react'
+
 import { notoSansKR } from './fonts'
+
 import './globals.css'
 
 export const metadata = {
