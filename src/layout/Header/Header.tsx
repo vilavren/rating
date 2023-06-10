@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import React from 'react'
 
 import style from './Header.module.css'
 import { HeaderProps } from './Header.props'

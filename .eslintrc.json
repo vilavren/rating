@@ -18,18 +18,23 @@
     "import/order": [
       "error",
       {
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
         "groups": [
           "builtin",
           "external",
-          "internal",
           "parent",
           "sibling",
-          "index"
+          "index",
+          "object",
+          "type"
         ],
+        "pathGroups": [
+          {
+            "pattern": "@/**/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "alphabetize": { "order": "asc" },
         "newlines-between": "always"
       }
     ]

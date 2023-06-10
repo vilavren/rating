@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import React from 'react'
 
 import style from './SideBar.module.css'
 import { SideBarProps } from './SideBar.props'

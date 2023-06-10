@@ -1,8 +1,9 @@
 import cn from 'classnames'
-import ArrowIcon from './arrow.svg'
+import React from 'react'
 
 import style from './Button.module.css'
 import { ButtonProps } from './Button.props'
+import ArrowIcon from './arrow.svg'
 
 export const Button = ({
   children,

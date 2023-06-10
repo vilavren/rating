@@ -1,6 +1,7 @@
-'use client' // This is a client component
 import cn from 'classnames'
 import { useEffect, useState, KeyboardEvent } from 'react'
+import React from 'react'
+
 import style from './Rating.module.css'
 import { RatingProps } from './Rating.props'
 import StarIcon from './star.svg'

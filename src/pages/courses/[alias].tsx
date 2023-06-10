@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from 'querystring'
 
 import axios from 'axios'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
-import React, { useState } from 'react'
+import React from 'react'
 
 import { MenuItem } from '@/interfaces/menu.interface'
 import { TopPageModal } from '@/interfaces/page.interface'
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
     process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias
   )
 
-  const { data: products } = await axios.post<ProductModel>(
+  const { data: products } = await axios.post<ProductModel[]>(
     process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find/',
     {
       category: page.category,
