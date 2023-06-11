@@ -1,6 +1,8 @@
 import React from 'react'
 import { FunctionComponent } from 'react'
 
+import { AppContextProvider, IAppContext } from '@/context/app.context'
+
 import { Footer, Header, SideBar } from '..'
 
 import style from './Layout.module.css'
@@ -17,14 +19,16 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
   )
 }
 
-export const withLayout = <T extends Record<string, unknown>>(
+export const withLayout = <T extends Record<string, unknown> & IAppContext>(
   Component: FunctionComponent<T>
 ) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AppContextProvider>
     )
   }
 }
