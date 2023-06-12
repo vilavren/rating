@@ -5,6 +5,7 @@ import { AppContextProvider, IAppContext } from '@/context/app.context'
 
 import { Footer, Header, SideBar } from '..'
 
+import '../../styles/globals.css'
 import style from './Layout.module.css'
 import { LayoutProps } from './Layout.props'
 

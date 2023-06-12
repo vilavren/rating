@@ -2,8 +2,6 @@ import axios from 'axios'
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 
-import '../styles/globals.css'
-
 import { Button, Htag, P, Tag, Rating } from '@/components'
 import { MenuItem } from '@/interfaces/menu.interface'
 import { withLayout } from '@/layout'
