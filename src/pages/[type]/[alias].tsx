@@ -28,7 +28,6 @@ export const getStaticPaths = async () => {
     paths = paths.concat(
       menu.flatMap((e) => e.pages.map((p) => `/${m.route}/${p.alias}`))
     )
-    console.log('paths:', paths)
     return {
       paths,
       fallback: true,
@@ -51,30 +50,43 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
       notFound: true,
     }
   }
-  const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-    { firstCategory: firstCategoryItem.id }
-  )
 
-  const { data: page } = await axios.get<TopPageModal>(
-    process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias
-  )
+  try {
+    const { data: menu } = await axios.post<MenuItem[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
+      { firstCategory: firstCategoryItem.id }
+    )
 
-  const { data: products } = await axios.post<ProductModel[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find/',
-    {
-      category: page.category,
-      limit: 10,
+    if (menu.length === 0) {
+      return {
+        notFound: true,
+      }
     }
-  )
 
-  return {
-    props: {
-      menu,
-      firstCategory: firstCategoryItem.id,
-      page,
-      products,
-    },
+    const { data: page } = await axios.get<TopPageModal>(
+      process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias
+    )
+
+    const { data: products } = await axios.post<ProductModel[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find/',
+      {
+        category: page.category,
+        limit: 10,
+      }
+    )
+
+    return {
+      props: {
+        menu,
+        firstCategory: firstCategoryItem.id,
+        page,
+        products,
+      },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }
 
