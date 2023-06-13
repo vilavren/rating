@@ -1,6 +1,9 @@
 import cn from 'classnames'
 import React from 'react'
 
+import { Card, HhData, Htag, Tag } from '@/components'
+
+import style from './TopPageComponent.module.css'
 import { TopPageComponentProps } from './TopPageComponent.props'
 
 export const TopPageComponent = ({
@@ -8,5 +11,27 @@ export const TopPageComponent = ({
   products,
   firstCategory,
 }: TopPageComponentProps): JSX.Element => {
-  return <>{products && products.length}</>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.title}>
+        <Htag tag="h1">{page.title}</Htag>
+        {products && (
+          <Tag color="grey" size="m">
+            {products.length}
+          </Tag>
+        )}
+        <span>Сортировка</span>
+      </div>
+      <div>
+        {products && products.map((p) => <div key={p._id}>{p.title}</div>)}
+      </div>
+      <div className={style.hhtitle}>
+        <Htag tag="h2"> Вакансии - {page.category}</Htag>
+        <Tag color="red" size="m">
+          hh.ru
+        </Tag>
+      </div>
+      <HhData {...page.hh} />
+    </div>
+  )
 }
