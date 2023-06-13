@@ -5,12 +5,11 @@ import axios from 'axios'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import React from 'react'
 
+import { firstLevelMenu } from '@/helpers/helpers'
 import { MenuItem } from '@/interfaces/menu.interface'
-import { TopPageModal } from '@/interfaces/page.interface'
+import { TopLevelCategory, TopPageModal } from '@/interfaces/page.interface'
 import { ProductModel } from '@/interfaces/product.interface'
 import { withLayout } from '@/layout'
-
-const firstCategory = 0
 
 function Courses({ menu, page, products }: CoursesProps): JSX.Element {
   return <>{products && products.length}</>
@@ -19,13 +18,21 @@ function Courses({ menu, page, products }: CoursesProps): JSX.Element {
 export default withLayout(Courses)
 
 export const getStaticPaths = async () => {
-  const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-    { firstCategory }
-  )
-  return {
-    paths: menu.flatMap((m) => m.pages.map((p) => '/courses/' + p.alias)),
-    fallback: true,
+  let paths: string[] = []
+
+  for (const m of firstLevelMenu) {
+    const { data: menu } = await axios.post<MenuItem[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
+      { firstCategory: m.id }
+    )
+    paths = paths.concat(
+      menu.flatMap((e) => e.pages.map((p) => `/${m.route}/${p.alias}`))
+    )
+    console.log('paths:', paths)
+    return {
+      paths,
+      fallback: true,
+    }
   }
 }
 
@@ -38,9 +45,15 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
     }
   }
 
+  const firstCategoryItem = firstLevelMenu.find((m) => m.route === params.type)
+  if (!firstCategoryItem) {
+    return {
+      notFound: true,
+    }
+  }
   const { data: menu } = await axios.post<MenuItem[]>(
     process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-    { firstCategory }
+    { firstCategory: firstCategoryItem.id }
   )
 
   const { data: page } = await axios.get<TopPageModal>(
@@ -58,7 +71,7 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
   return {
     props: {
       menu,
-      firstCategory,
+      firstCategory: firstCategoryItem.id,
       page,
       products,
     },
@@ -67,7 +80,7 @@ export const getStaticProps: GetStaticProps<CoursesProps> = async ({
 
 interface CoursesProps extends Record<string, unknown> {
   menu: MenuItem[]
-  firstCategory: number
+  firstCategory: TopLevelCategory
   page: TopPageModal
   products: ProductModel[]
 }
