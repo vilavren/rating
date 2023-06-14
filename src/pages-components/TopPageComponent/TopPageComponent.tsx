@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Card, HhData, Htag, Tag } from '@/components'
+import { Advantages, Card, HhData, Htag, Tag } from '@/components'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 
 import style from './TopPageComponent.module.css'
@@ -34,6 +34,12 @@ export const TopPageComponent = ({
       </div>
       {firstCategory === TopLevelCategory.Courses && page.hh && (
         <HhData {...page.hh} />
+      )}
+      {page.advantages && page.advantages.length > 0 && (
+        <>
+          <Htag tag="h2">Преимущества</Htag>
+          <Advantages advantages={page.advantages} />
+        </>
       )}
     </div>
   )
