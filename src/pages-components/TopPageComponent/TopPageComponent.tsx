@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Advantages, Card, HhData, Htag, Tag } from '@/components'
+import { Advantages, HhData, Htag, P, Tag } from '@/components'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 
 import style from './TopPageComponent.module.css'
@@ -41,6 +41,13 @@ export const TopPageComponent = ({
           <Advantages advantages={page.advantages} />
         </>
       )}
+      {page.seoText && <P>{page.seoText}</P>}
+      <Htag tag="h2">Получаемые навыки</Htag>
+      {page.tags.map((t) => (
+        <Tag key={t} color="primary">
+          {t}
+        </Tag>
+      ))}
     </div>
   )
 }
