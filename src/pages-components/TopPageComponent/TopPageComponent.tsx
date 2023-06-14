@@ -2,6 +2,7 @@ import cn from 'classnames'
 import React from 'react'
 
 import { Card, HhData, Htag, Tag } from '@/components'
+import { TopLevelCategory } from '@/interfaces/page.interface'
 
 import style from './TopPageComponent.module.css'
 import { TopPageComponentProps } from './TopPageComponent.props'
@@ -31,7 +32,7 @@ export const TopPageComponent = ({
           hh.ru
         </Tag>
       </div>
-      <HhData {...page.hh} />
+      {firstCategory === TopLevelCategory.Courses && <HhData {...page.hh} />}
     </div>
   )
 }
