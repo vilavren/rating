@@ -1,7 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Advantages, HhData, Htag, P, Tag } from '@/components'
+import { Advantages, HhData, Htag, P, Sort, Tag } from '@/components'
+import { SortEnum } from '@/components/Sort/Sort.props'
 import { TopLevelCategory } from '@/interfaces/page.interface'
 
 import style from './TopPageComponent.module.css'
@@ -21,7 +22,7 @@ export const TopPageComponent = ({
             {products.length}
           </Tag>
         )}
-        <span>Сортировка</span>
+        <Sort sort={SortEnum.Raing} setSort={() => {}} />
       </div>
       <div>
         {products && products.map((p) => <div key={p._id}>{p.title}</div>)}
