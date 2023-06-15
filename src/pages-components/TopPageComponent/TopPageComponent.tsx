@@ -7,7 +7,7 @@ import { TopLevelCategory } from '@/interfaces/page.interface'
 
 import { sortReducer } from '../../components/Sort/sort.reducer'
 
-import style from './TopPageComponent.module.css'
+import styles from './TopPageComponent.module.css'
 import { TopPageComponentProps } from './TopPageComponent.props'
 
 export const TopPageComponent = ({
@@ -28,8 +28,8 @@ export const TopPageComponent = ({
   }
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.title}>
+    <div className={styles.wrapper}>
+      <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products && (
           <Tag color="grey" size="m">
@@ -42,7 +42,7 @@ export const TopPageComponent = ({
         {sortedProducts &&
           sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
       </div>
-      <div className={style.hhtitle}>
+      <div className={styles.hhtitle}>
         <Htag tag="h2"> Вакансии - {page.category}</Htag>
         <Tag color="red" size="m">
           hh.ru
@@ -59,7 +59,7 @@ export const TopPageComponent = ({
       )}
       {page.seoText && (
         <div
-          className={style.seo}
+          className={styles.seo}
           dangerouslySetInnerHTML={{ __html: page.seoText }}
         />
       )}

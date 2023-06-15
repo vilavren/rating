@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import style from './Button.module.css'
+import styles from './Button.module.css'
 import { ButtonProps } from './Button.props'
 import ArrowIcon from './arrow.svg'
 
@@ -14,15 +14,15 @@ export const Button = ({
 }: ButtonProps): JSX.Element => {
   return (
     <button
-      className={cn(style.button, className, {
-        [style.primary]: appearance == 'primary',
-        [style.ghost]: appearance == 'ghost',
+      className={cn(styles.button, className, {
+        [styles.primary]: appearance == 'primary',
+        [styles.ghost]: appearance == 'ghost',
       })}
       {...props}
     >
       {children}
       {arrow !== 'none' && (
-        <span className={cn(style.arrow, { [style.down]: arrow === 'down' })}>
+        <span className={cn(styles.arrow, { [styles.down]: arrow === 'down' })}>
           <ArrowIcon />
         </span>
       )}

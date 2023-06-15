@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import style from './P.module.css'
+import styles from './P.module.css'
 import { PProps } from './P.props'
 
 export const P = ({
@@ -12,10 +12,10 @@ export const P = ({
 }: PProps): JSX.Element => {
   return (
     <p
-      className={cn(style.p, className, {
-        [style.s]: size === 's',
-        [style.m]: size === 'm',
-        [style.l]: size === 'l',
+      className={cn(styles.p, className, {
+        [styles.s]: size === 's',
+        [styles.m]: size === 'm',
+        [styles.l]: size === 'l',
       })}
       {...props}
     >

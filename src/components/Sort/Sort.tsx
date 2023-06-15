@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import style from './Sort.module.css'
+import styles from './Sort.module.css'
 import { SortEnum, SortProps } from './Sort.props'
 import SortIcon from './sort.svg'
 
@@ -12,26 +12,26 @@ export const Sort = ({
   ...props
 }: SortProps): JSX.Element => {
   return (
-    <div className={cn(style.sort, className, { ...props })}>
+    <div className={cn(styles.sort, className, { ...props })}>
       <span
         onClick={() => {
           setSort(SortEnum.Raing)
         }}
         className={cn({
-          [style.active]: sort === SortEnum.Raing,
+          [styles.active]: sort === SortEnum.Raing,
         })}
       >
-        <SortIcon className={style.sortIcon} /> По рейтингу
+        <SortIcon className={styles.sortIcon} /> По рейтингу
       </span>
       <span
         onClick={() => {
           setSort(SortEnum.Price)
         }}
         className={cn({
-          [style.active]: sort === SortEnum.Price,
+          [styles.active]: sort === SortEnum.Price,
         })}
       >
-        <SortIcon className={style.sortIcon} /> По цене
+        <SortIcon className={styles.sortIcon} /> По цене
       </span>
     </div>
   )

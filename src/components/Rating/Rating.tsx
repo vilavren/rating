@@ -2,7 +2,7 @@ import cn from 'classnames'
 import { useEffect, useState, KeyboardEvent } from 'react'
 import React from 'react'
 
-import style from './Rating.module.css'
+import styles from './Rating.module.css'
 import { RatingProps } from './Rating.props'
 import StarIcon from './star.svg'
 
@@ -26,9 +26,9 @@ export const Rating = ({
     const updatedArray = ratingArray.map((e: JSX.Element, i: number) => {
       return (
         <span
-          className={cn(style.star, {
-            [style.filled]: i < currentRating,
-            [style.editable]: isEditable,
+          className={cn(styles.star, {
+            [styles.filled]: i < currentRating,
+            [styles.editable]: isEditable,
           })}
           onMouseEnter={() => changeDisplay(i + 1)}
           onMouseLeave={() => changeDisplay(rating)}

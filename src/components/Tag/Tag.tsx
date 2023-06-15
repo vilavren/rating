@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import style from './Tag.module.css'
+import styles from './Tag.module.css'
 import { TagProps } from './Tag.props'
 
 export const Tag = ({
@@ -14,14 +14,14 @@ export const Tag = ({
 }: TagProps): JSX.Element => {
   return (
     <div
-      className={cn(style.tag, className, {
-        [style.s]: size === 's',
-        [style.m]: size === 'm',
-        [style.ghost]: color === 'ghost',
-        [style.green]: color === 'green',
-        [style.grey]: color === 'grey',
-        [style.primary]: color === 'primary',
-        [style.red]: color === 'red',
+      className={cn(styles.tag, className, {
+        [styles.s]: size === 's',
+        [styles.m]: size === 'm',
+        [styles.ghost]: color === 'ghost',
+        [styles.green]: color === 'green',
+        [styles.grey]: color === 'grey',
+        [styles.primary]: color === 'primary',
+        [styles.red]: color === 'red',
       })}
       {...props}
     >

@@ -8,7 +8,7 @@ import { AppContext } from '@/context/app.context'
 import { firstLevelMenu } from '@/helpers/helpers'
 import { FirstLevelMenuItem, PageItem } from '@/interfaces/menu.interface'
 
-import style from './Menu.module.css'
+import styles from './Menu.module.css'
 
 export const Menu = (): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext)
@@ -33,8 +33,8 @@ export const Menu = (): JSX.Element => {
             <div key={m.route}>
               <Link href={`/${m.route}`}>
                 <div
-                  className={cn(style.firstLevel, {
-                    [style.firstLevelActive]: m.id === firstCategory,
+                  className={cn(styles.firstLevel, {
+                    [styles.firstLevelActive]: m.id === firstCategory,
                   })}
                 >
                   {m.icon}
@@ -50,7 +50,7 @@ export const Menu = (): JSX.Element => {
   }
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
     return (
-      <div className={style.secondBlock}>
+      <div className={styles.secondBlock}>
         {menu.map((m) => {
           if (
             m.pages.map((p) => p.alias).includes(router.asPath.split('/')[2])
@@ -60,14 +60,14 @@ export const Menu = (): JSX.Element => {
           return (
             <div key={m._id.secondCategory}>
               <div
-                className={style.secondLevel}
+                className={styles.secondLevel}
                 onClick={() => openSecondLevel(m._id.secondCategory)}
               >
                 {m._id.secondCategory}
               </div>
               <div
-                className={cn(style.secondLevelBlock, {
-                  [style.secondLevelBlockOpened]: m.isOpened,
+                className={cn(styles.secondLevelBlock, {
+                  [styles.secondLevelBlockOpened]: m.isOpened,
                 })}
               >
                 {buildThirdLevel(m.pages, menuItem.route)}
@@ -84,8 +84,8 @@ export const Menu = (): JSX.Element => {
       <Link
         key={p._id}
         href={`/${route}/${p.alias}`}
-        className={cn(style.thirdLevel, {
-          [style.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
+        className={cn(styles.thirdLevel, {
+          [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
         })}
       >
         {p.category}
@@ -93,5 +93,5 @@ export const Menu = (): JSX.Element => {
     ))
   }
 
-  return <div className={style.menu}>{buildFirstLevel()}</div>
+  return <div className={styles.menu}>{buildFirstLevel()}</div>
 }

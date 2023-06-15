@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import style from './Card.module.css'
+import styles from './Card.module.css'
 import { CardProps } from './Card.props'
 
 export const Card = ({
@@ -12,8 +12,8 @@ export const Card = ({
 }: CardProps): JSX.Element => {
   return (
     <div
-      className={cn(style.card, className, {
-        [style.blue]: color === 'blue',
+      className={cn(styles.card, className, {
+        [styles.blue]: color === 'blue',
       })}
       {...props}
     >

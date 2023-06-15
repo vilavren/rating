@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { Button, Htag, P, Tag, Rating, Input } from '@/components'
 import { MenuItem } from '@/interfaces/menu.interface'
-import { withLayout } from '@/layout'
+import { withLayout } from '@/layout/Layout/Layout'
 
 function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4)
