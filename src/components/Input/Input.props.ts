@@ -1,6 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
 
 export type InputProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLInputElement>,
+  InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >
