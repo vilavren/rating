@@ -11,6 +11,8 @@ export interface ProductModel {
   oldPrice: number
   characteristics: ProductCharacteristic[]
   advantages?: string
+  disadvantages?: string
+  feature: string
   initialRating: number
   createdAt: string
   updatedAt: string
