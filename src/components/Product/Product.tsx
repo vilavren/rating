@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { priceRu } from '@/helpers/helpers'
+import { declOfnum, priceRu } from '@/helpers/helpers'
 
 import { Button } from '../Button/Button'
 import { Card } from '../Card/Card'
@@ -55,7 +55,10 @@ export const Product = ({
 
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount}отзывов</div>
+      <div className={styles.rateTitle}>
+        {product.reviewCount}{' '}
+        {declOfnum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}{' '}
+      </div>
 
       <Divider className={styles.hr} />
 
