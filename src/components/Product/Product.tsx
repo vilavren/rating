@@ -1,6 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
+import { priceRu } from '@/helpers/helpers'
+
 import { Button } from '../Button/Button'
 import { Card } from '../Card/Card'
 import { Rating } from '../Rating/Rating'
@@ -23,8 +25,17 @@ export const Product = ({
         ></img>
       </div>
       <div className={styles.title}>{product.title}</div>
-      <div className={styles.price}>{product.price}</div>
-      <div className={styles.credit}>{product.credit}</div>
+      <div className={styles.price}>
+        {priceRu(product.price)}{' '}
+        {product.oldPrice && (
+          <Tag className={styles.oldPrice} color="green">
+            {priceRu(product.price - product.oldPrice)}
+          </Tag>
+        )}{' '}
+      </div>
+      <div className={styles.credit}>
+        {priceRu(product.credit)}/<span className={styles.month}>мес</span>
+      </div>
       <div className={styles.rating}>
         <Rating rating={product.reviewAvg ?? product.initialRating} />
       </div>

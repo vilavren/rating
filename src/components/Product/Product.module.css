@@ -27,7 +27,7 @@
 }
 
 .rating,
-.ratingTitle {
+.rateTitle {
 	grid-column: ratestart / end;
 }
 
@@ -43,4 +43,43 @@
 
 .advBlock {
 	grid-column: middle / end;
+}
+
+.logo img {
+	border-radius: 5px;
+}
+
+.title {
+	align-self: flex-end;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 27px;
+}
+
+.price,
+.credit {
+	align-self: flex-end;
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.month {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.oldPrice {
+	margin-left: 5px;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.priceTitle,
+.creditTitle,
+.rateTitle {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
 }
