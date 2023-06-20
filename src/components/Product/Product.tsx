@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Image from 'next/image'
 import React from 'react'
 
 import { declOfnum, priceRu } from '@/helpers/helpers'
@@ -20,10 +21,12 @@ export const Product = ({
   return (
     <Card className={styles.product}>
       <div className={styles.logo}>
-        <img
+        <Image
           src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
           alt={product.title}
-        ></img>
+          width={70}
+          height={70}
+        />
       </div>
 
       <div className={styles.title}>{product.title}</div>
