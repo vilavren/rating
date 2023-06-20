@@ -168,6 +168,7 @@
 
 	.tags {
 		grid-area: tags;
+		margin-bottom: 20px;
 	}
 
 	.price {
@@ -219,4 +220,35 @@
 		grid-area: actions;
 	}
 
+}
+
+@media (width <=900px) {
+	.product {
+		grid-template-areas:
+			"logo . title "
+			"logo . tags "
+			"priceTitle pricpriceTitlee price "
+			"creditTitle creditTitle credit"
+			"rateTitle rateTitle rating"
+			"hr hr hr "
+			"description description description "
+			"feature feature feature "
+			"advBlock advBlock advBlock "
+			"hr2 hr2 hr2 "
+			"actions actions actions "
+		;
+		grid-template-columns: 70px 30px 1fr;
+	}
+
+	.price {
+		margin-bottom: 10px;
+	}
+
+	.credit {
+		margin-bottom: 10px;
+	}
+
+	.rating {
+		margin-bottom: 10px;
+	}
 }
