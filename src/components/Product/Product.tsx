@@ -100,9 +100,12 @@ export const Product = ({
         <div className={styles.actions}>
           <Button appearance="primary">Узнать подробнее</Button>
           <Button
-            appearance="primary"
-            arrow="right"
+            appearance="ghost"
+            arrow={isReviewOpened ? 'down' : 'right'}
             className={styles.reviewButton}
+            onClick={() => {
+              setIsReviewOpened(!isReviewOpened)
+            }}
           >
             Читать отзывы
           </Button>
@@ -110,7 +113,7 @@ export const Product = ({
       </Card>
       <Card
         color="blue"
-        className={cn(styles.review, {
+        className={cn(styles.reviews, {
           [styles.opened]: isReviewOpened,
           [styles.closed]: !isReviewOpened,
         })}
