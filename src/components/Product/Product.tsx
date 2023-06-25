@@ -8,6 +8,7 @@ import { Button } from '../Button/Button'
 import { Card } from '../Card/Card'
 import { Divider } from '../Divider/Divider'
 import { Rating } from '../Rating/Rating'
+import { Review } from '../Review/Review'
 import { Tag } from '../Tag/Tag'
 
 import styles from './Product.module.css'
@@ -118,7 +119,9 @@ export const Product = ({
           [styles.closed]: !isReviewOpened,
         })}
       >
-        review
+        {product.reviews.map((r) => (
+          <Review key={r._id} review={r} />
+        ))}
       </Card>
     </>
   )
