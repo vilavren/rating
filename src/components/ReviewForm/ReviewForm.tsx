@@ -22,7 +22,7 @@ export const ReviewForm = ({
         <span>Оценка:</span>
         <Rating rating={0}></Rating>
       </div>
-      <Textarea />
+      <Textarea className={styles.description} />
       <div className={styles.submit}>
         <Button appearance="primary">Отправить</Button>
         <span>
